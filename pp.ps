@@ -1,0 +1,36 @@
+%!PS
+<< /PageSize [595 842] >> setpagedevice
+/Helvetica findfont 6 scalefont setfont
+/numpages 5 def
+/page 0 def
+/row 0 def
+/col 0 def
+/shownum {
+    20 string cvs
+    col 1 add 25 mul 47.5 add
+    100 row sub 7.5 mul 46 add
+    moveto
+    dup stringwidth pop 0 exch sub 0 rmoveto
+    show
+    /col col 1 add def
+    col 20 ge {
+        /col 0 def
+        /row row 1 add def
+    } if
+    row 100 ge {
+        showpage
+        /row 0 def
+        /page page 1 add def
+    } if
+} def
+/i 2 def
+{
+    /j 2 def
+    {
+        j j mul i gt { i shownum exit } if
+        i j mod 0 eq { exit } if
+        /j j 1 add def
+    } loop
+    page numpages ge { exit } if
+    /i i 1 add def
+} loop
